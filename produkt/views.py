@@ -16,3 +16,5 @@ def desc(request,pk):
     products = Product.objects.filter(pk=pk)
     context = {'products':products}
     return render(request,'desc.html',context)
+
+def create_product(request):
