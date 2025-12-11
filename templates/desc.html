@@ -4,15 +4,29 @@
     <meta charset="UTF-8">
     <title>Full</title>
 </head>
+
 <body>
-{% for i in products %}
-{{ i.name_product }}<br>
-{{ i.make }}<br>
-{{ i.price }}<br>
-{{ i.county }}<br>
-{{ i.create_at }}<br>
-{{ i.desc }}<br>
-{{i.image }}
-{% endfor %}<br>
+{% for i in products  %}
+
+    {{ i.name_product }}<br>
+    {{ i.make }}<br>
+    {{ i.price }}<br>
+    {{ i.county }}<br>
+    {{ i.create_at }}<br>
+    {{ i.desc }}<br>
+
+
+<a href="{% url 'updata' i.pk %}">
+    <button type="button">Edit product</button>
+</a>
+<button >
+    <a href="{% url 'del' i.pk %}"> O'chirish</a>
+</button>
+
+
+
+{% endfor %}
+
+
 </body>
 </html>

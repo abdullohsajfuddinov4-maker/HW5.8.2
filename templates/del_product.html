@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>del</title>
+</head>
+<body>
+<form method="post">
+    {% csrf_token %}
+    {{ product.image }}
+    <h2>Tochana ochirasizmi?</h2>
+    <button type="submit">ha</button>
+    <button>
+    <a href="{% url 'full' product.pk  %}">yoq</a>
+        </button>
+</form>
+</body>
+</html>

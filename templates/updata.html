@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Update product</title>
+</head>
+<body>
+
+<h1>Update product</h1>
+
+<form method="post" enctype="multipart/form-data">
+    {% csrf_token %}
+
+    <input type="text" name="name_product" value="{{ product.name_product }}" placeholder="Name_product"><br><br>
+    <input type="text" name="make" value="{{ product.make }}"><br><br>
+    <input type="text" name="price"  value="{{ product.price }}" ><br><br>
+    <input type="text" name="county" value="{{ product.county }}" ><br><br>
+    <input type="text" name="desc" value="{{ product.desc }}" ><br><br>
+    <input type="file" name="image"><br><br>
+
+    <button type="submit">Save</button>
+</form>
+
+</body>
+</html>
