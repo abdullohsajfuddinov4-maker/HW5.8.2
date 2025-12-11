@@ -2,24 +2,178 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Create product</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Create Product</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: #fff;
+            line-height: 1.6;
+        }
+
+        .container {
+            width: 90%;
+            max-width: 500px;
+            background: rgba(255, 255, 255, 0.15);
+            border-radius: 15px;
+            padding: 30px;
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+
+        h1 {
+            font-size: 2rem;
+            text-align: center;
+            margin-bottom: 30px;
+            color: #ffffff;
+            text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+        }
+
+        form {
+            display: flex;
+            flex-direction: column;
+        }
+
+        label {
+            font-weight: 600;
+            margin-bottom: 8px;
+            color: #bbdefb;
+        }
+
+        input[type="text"],
+        input[type="file"] {
+            padding: 12px 16px;
+            border: 2px solid rgba(255, 255, 255, 0.3);
+            border-radius: 8px;
+            background: rgba(255, 255, 255, 0.1);
+            color: white;
+            font-size: 1rem;
+            margin-bottom: 20px;
+            transition: border-color 0.3s ease;
+        }
+
+        input[type="text"]:focus,
+        input[type="file"]:focus {
+            outline: none;
+            border-color: #667eea;
+        }
+
+        input[type="file"] {
+            padding-top: 8px;
+        }
+
+        button {
+            padding: 14px 24px;
+            background: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 50px;
+            font-size: 1.1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            margin-top: 10px;
+        }
+
+        button:hover {
+            background: #45a049;
+            transform: translateY(-2px);
+            box-shadow: 0 6px 15px rgba(76, 175, 80, 0.4);
+        }
+
+        .required-hint {
+            font-size: 0.85rem;
+            color: rgba(255, 255, 255, 0.7);
+            margin-top: 5px;
+            text-align: right;
+        }
+
+        @media (max-width: 480px) {
+            .container {
+                width: 95%;
+                padding: 20px;
+            }
+
+            h1 {
+                font-size: 1.8rem;
+            }
+        }
+    </style>
 </head>
 <body>
-<h1>Create product</h1>
+    <div class="container">
+        <h1>Create Product</h1>
 
-<form method="post" enctype="multipart/form-data">
-    {% csrf_token %}
+        <form method="post" enctype="multipart/form-data">
+            {% csrf_token %}
 
+            <label for="name_product">Product Name</label>
+            <input
+                type="text"
+                id="name_product"
+                name="name_product"
+                placeholder="Enter product name"
+                required
+            >
 
-    <input type="text" name="name_product" placeholder="Name_product"><br><br>
-    <input type="text" name="make" placeholder="Make"><br><br>
-    <input type="text" name="price" placeholder="Price"><br><br>
-    <input type="text" name="county" placeholder="County"><br><br>
-    <input type="text" name="desc" placeholder="desc"><br><br>
-    <input type="file" name="image"><br><br>
+            <label for="make">Manufacturer</label>
+            <input
+                type="text"
+                id="make"
+                name="make"
+                placeholder="Enter manufacturer"
+                required
+            >
 
-    <button type="submit">Create</button>
-</form>
+            <label for="price">Price</label>
+            <input
+                type="text"
+                id="price"
+                name="price"
+                placeholder="Enter price"
+                required
+            >
 
+            <label for="county">Country</label>
+            <input
+                type="text"
+                id="county"
+                name="county"
+                placeholder="Enter country"
+                required
+            >
+
+            <label for="desc">Description</label>
+            <input
+                type="text"
+                id="desc"
+                name="desc"
+                placeholder="Enter description"
+                required
+            >
+
+            <label for="image">Product Image</label>
+            <input
+                type="file"
+                id="image"
+                name="image"
+                accept="image/*"
+            >
+            <span class="required-hint">Image is optional</span>
+
+            <button type="submit">Create</button>
+        </form>
+    </div>
 </body>
 </html>
